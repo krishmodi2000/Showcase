@@ -1,6 +1,50 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="container">
+    <div class="row">
+
+        <div class="col s12 m12 l4 ">
+            <div class="card z-depth-5 green accent-4">
+                <div class="card-image">
+                    <img src="https://image.tmdb.org/t/p/w780/1yeVJox3rjo2jBKrrihIMj7uoS9.jpg">
+                    <span class="card-title">Search TV Shows</span>
+                </div>
+                <div class="card-action">
+                    <a class="waves-effect waves-light grey darken-4 btn z-depth-5"
+                        href="{% url 'search_tv' %}">Search</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l4 ">
+            <div class="card z-depth-5 green accent-4">
+                <div class="card-image">
+                    <img src="https://image.tmdb.org/t/p/w780/or06FN3Dka5tukK1e9sl16pB3iy.jpg">
+                    <span class="card-title">Search Movies</span>
+                </div>
+                <div class="card-action">
+                    <a class="waves-effect waves-light grey darken-4 btn z-depth-5"
+                        href="{% url 'search_movies' %}">Search</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col s12 m12 l4 ">
+            <div class="card z-depth-5 green accent-4">
+                <div class="card-image">
+                    <img src="https://image.tmdb.org/t/p/w780/mXN4Gw9tZJVKrLJHde2IcUHmV3P.jpg">
+                    <span class="card-title">Search Actors</span>
+                </div>
+                <div class="card-action">
+                    <a class="waves-effect waves-light grey darken-4 btn z-depth-5"
+                        href="{% url 'search_person' %}">Search</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 
 

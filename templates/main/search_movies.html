@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<form class="search-form" method="GET">
+    <input class="search-form__query center" type="text" placeholder="Search...." name="Search">
+</form>
+
+
+{% if results %}
+
+{% for result in results.results %}
+
+<p>
+    {{ result }}
+</p>
+<img src="https://image.tmdb.org/t/p/w185{{ result.poster_path }}" alt="">
+
+{% endfor %}
+
+{% else %}
+
+<h1 class="center">
+    Welcome to Showcase Movie Search....
+</h1>
+
+{% endif %}
+
+{% endblock %}
