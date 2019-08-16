@@ -43,7 +43,7 @@ def SearchTv(request):
     context = {
         'results': results
     }
-    return render(request, 'main/search_movies.html', context)
+    return render(request, 'main/search_tv.html', context)
 
 
 def SearchPerson(request):
@@ -61,18 +61,84 @@ def SearchPerson(request):
     return render(request, 'main/search_person.html', context)
 
 
-def Top10Movies(request):
-    id_list = [278, 238, 240, 155, 389, 424, 122, 680, 429, 550]
+def DetailsMovie(request, id):
     api_key = 'c4cc6806388f5424ca7bad9c0cd0440b'
-    results = {}
-    movie_list = []
-    for i in id_list:
-        url = 'https://api.themoviedb.org/3/movie/{}?api_key={}'.format(
-            i, api_key)
-        response = requests.get(url)
-        results = response.json()
-        movie_list.append(results)
+    url = 'https://api.themoviedb.org/3/movie/{}?api_key={}'.format(
+        id, api_key)
+    response1 = requests.get(url)
+    results = response1.json()
+
+    url = 'https://api.themoviedb.org/3/movie/{}/similar?api_key={}'.format(
+        id, api_key)
+    response2 = requests.get(url)
+    similar = response2.json()
+
+    url = 'https://api.themoviedb.org/3/movie/{}/credits?api_key={}'.format(
+        id, api_key)
+    response3 = requests.get(url)
+    creds = response3.json()
+
+    url = 'https://api.themoviedb.org/3/movie/{}/videos?api_key={}'.format(
+        id, api_key)
+    response4 = requests.get(url)
+    vids = response4.json()
+
     context = {
-        'results': movie_list
+        'results': results,
+        'credits': creds,
+        'similar': similar,
+        'videos': vids
     }
-    return render(request, 'main/index.html', context)
+    return render(request, 'main/details_movies.html', context)
+
+
+def DetailsTv(request, id):
+    api_key = 'c4cc6806388f5424ca7bad9c0cd0440b'
+    url = 'https://api.themoviedb.org/3/tv/{}?api_key={}'.format(
+        id, api_key)
+    response = requests.get(url)
+    results = response.json()
+
+    url = 'https://api.themoviedb.org/3/tv/{}/similar?api_key={}'.format(
+        id, api_key)
+    response2 = requests.get(url)
+    similar = response2.json()
+
+    url = 'https://api.themoviedb.org/3/tv/{}/credits?api_key={}'.format(
+        id, api_key)
+    response3 = requests.get(url)
+    creds = response3.json()
+
+    url = 'https://api.themoviedb.org/3/tv/{}/videos?api_key={}'.format(
+        id, api_key)
+    response4 = requests.get(url)
+    vids = response4.json()
+
+    context = {
+        'results': results,
+        'credits': creds,
+        'similar': similar,
+        'videos': vids
+    }
+    return render(request, 'main/details_tv.html', context)
+
+
+def DetailsPerson(request, id):
+    api_key = 'c4cc6806388f5424ca7bad9c0cd0440b'
+
+    url = 'https://api.themoviedb.org/3/person/{}?api_key={}'.format(
+        id, api_key)
+    response = requests.get(url)
+    results = response.json()
+
+
+    url = 'https://api.themoviedb.org/3/person/{}/combined_credits?api_key={}'.format(
+        id, api_key)
+    response3 = requests.get(url)
+    creds = response3.json()
+
+    context = {
+        'results': results,
+        'credits': creds
+    }
+    return render(request, 'main/details_person.html', context)
