@@ -1,1 +1,1 @@
-web: gunicorn Showcase.wsgi
+web: gunicorn showcase.wsgi
