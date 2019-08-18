@@ -2,6 +2,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import TemplateView, DetailView, CreateView, ListView
 
+from django.conf import settings
+
 import json
 import requests
 
