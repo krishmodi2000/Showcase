@@ -17,7 +17,7 @@ class Search(TemplateView):
 
 
 def SearchMovies(request):
-    api_key = 'c4cc6806388f5424ca7bad9c0cd0440b'
+    api_key = settings.API_KEY
     results = {}
     if 'Search' in request.GET:
         query = request.GET['Search']
@@ -32,7 +32,7 @@ def SearchMovies(request):
 
 
 def SearchTv(request):
-    api_key = 'c4cc6806388f5424ca7bad9c0cd0440b'
+    api_key = settings.API_KEY
     results = {}
     if 'Search' in request.GET:
         query = request.GET['Search']
@@ -47,7 +47,7 @@ def SearchTv(request):
 
 
 def SearchPerson(request):
-    api_key = 'c4cc6806388f5424ca7bad9c0cd0440b'
+    api_key = settings.API_KEY
     results = {}
     if 'Search' in request.GET:
         query = request.GET['Search']
@@ -62,7 +62,7 @@ def SearchPerson(request):
 
 
 def DetailsMovie(request, id):
-    api_key = 'c4cc6806388f5424ca7bad9c0cd0440b'
+    api_key = settings.API_KEY
     url = 'https://api.themoviedb.org/3/movie/{}?api_key={}'.format(
         id, api_key)
     response1 = requests.get(url)
@@ -93,7 +93,7 @@ def DetailsMovie(request, id):
 
 
 def DetailsTv(request, id):
-    api_key = 'c4cc6806388f5424ca7bad9c0cd0440b'
+    api_key = settings.API_KEY
     url = 'https://api.themoviedb.org/3/tv/{}?api_key={}'.format(
         id, api_key)
     response = requests.get(url)
@@ -124,7 +124,7 @@ def DetailsTv(request, id):
 
 
 def DetailsPerson(request, id):
-    api_key = 'c4cc6806388f5424ca7bad9c0cd0440b'
+    api_key = settings.API_KEY
 
     url = 'https://api.themoviedb.org/3/person/{}?api_key={}'.format(
         id, api_key)
