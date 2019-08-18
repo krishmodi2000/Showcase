@@ -13,13 +13,13 @@
 <div class="container">
     <div class="row">
         {% for result in results.results %}
-        <div class="col s12 m3 l3">
+        <div class="col s12 m4 l3">
             <div class="card">
                 <div class="card-image waves-effect waves-block waves-light">
                     <img class="activator" src="https://image.tmdb.org/t/p/w500{{ result.poster_path }}">
                 </div>
                 <div class="card-content">
-                    <span class="card-title activator grey-text text-darken-4">{{ result.name }}<i
+                    <span class="card-title activator grey-text text-darken-4">{{ result.original_title }}<i
                             class=" material-icons right">more_vert</i></span>
                     <p><a href="{% url 'details_tv' result.id %}"
                             class="waves-effect waves-light btn black green-text accent-4-text small z-depth-5">
@@ -28,7 +28,7 @@
                     </p>
                 </div>
                 <div class="card-reveal">
-                    <span class="card-title grey-text text-darken-4">{{ result.name }}<i
+                    <span class="card-title grey-text text-darken-4">{{ result.original_title }}<i
                             class="material-icons right">close</i></span>
                     <h6>First Aired:
                         <br>{{ result.first_air_date }}
